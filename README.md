@@ -15,7 +15,7 @@ In this project, I used Python and TensorFlow/Keras to build an AI model that ca
 
 Since 40 images per character are not enough to train a good model for 13,065 classes, I used OpenCV (cv2) to create more training data. Each original image was used to make 4 new images, increasing the training set from 40 to 200 images per character (over 2.6 million images in total).
 
-- Grayscale & Resizing: All images were changed to grayscale and resized to 32x32 pixels so the model can train faster without running out of GPU memory. The pixel values were also rescaled by dividing by 255.
+- Grayscale & Resizing: All images were changed to grayscale and resized to 48x48 during OpenCV augmentation, and then standardized to 32x32 pixels before model training so the model can train faster without running out of GPU memory. The pixel values were also rescaled by dividing by 255.
 - OpenCV Transformations (cv2.getRotationMatrix2D & cv2.warpAffine):
   - Rotation: Randomly rotated between -12 and +12 degrees.
   - Scaling: Randomly zoomed in or out between 0.85x and 1.15x.
